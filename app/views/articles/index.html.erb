@@ -1,0 +1,17 @@
+<div class="navbar">
+<h1>Wikinominous</h1>
+<button type="button" class="btn btn-dark" id="nav"> <%= link_to "New article", new_article_path %></button>
+</div>
+
+<ul>
+  <% @articles.each do |article| %>
+  <li>
+    <h3><%= link_to article.title, article_path(article) %></h3>
+    <p><%= article.content %></p>
+    <button type="button" class="btn btn-warning"> <%= link_to "Delete",
+            article_path(article),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %> </button>
+  </li>
+  <% end %>
+</ul>
